@@ -16,8 +16,12 @@ class Parka::Specification < Gem::Specification
     spec = Gem::Specification.new(&block)
 
     # set up some sensible defaults
-    spec.author ||= default_author
-    spec.email  ||= default_email
+    spec.author      ||= default_author
+    spec.email       ||= default_email
+    spec.description ||= spec.summary
+
+    # hack to avoid rubyforge_project warning
+    spec.rubyforge_project = "nowarning"
 
     # default file list if none specified
     spec.files = default_files if spec.files.empty?
