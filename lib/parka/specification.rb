@@ -5,6 +5,14 @@ require "rubygems"
 class Parka::Specification < Gem::Specification
 
   def self.new(&block)
+    gemspec_filename = caller.first.split(':').first
+
+    # add the lib/ dir of the gem to the load path
+    $:.unshift File.join(File.dirname(gemspec_filename), 'lib')
+
+    # autorequire the same name as the gem spec
+    require File.basename(gemspec_filename, File.extname(gemspec_filename))
+
     spec = Gem::Specification.new(&block)
 
     # set up some sensible defaults
