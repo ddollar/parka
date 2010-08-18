@@ -9,4 +9,6 @@ Parka::Specification.new do |gem|
   gem.version  = Parka::VERSION
   gem.summary  = "Simple gem building using bundler"
   gem.homepage = "http://github.com/ddollar/parka"
+
+  gem.executables = "parka"
 end
