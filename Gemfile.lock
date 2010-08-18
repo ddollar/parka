@@ -3,6 +3,9 @@ GEM
   specs:
     diff-lcs (1.1.2)
     mime-types (1.16)
+    parka (0.1.2)
+      rest-client
+      thor
     rake (0.8.7)
     rcov (0.9.8)
     rest-client (1.6.0)
@@ -21,6 +24,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  parka
   rake
   rcov
   rest-client
