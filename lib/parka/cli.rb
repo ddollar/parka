@@ -20,7 +20,7 @@ class Parka::CLI < Thor
     filename
   end
 
-  desc "build [GEMSPEC]", "Build and install the gem"
+  desc "install [GEMSPEC]", "Build and install the gem"
 
   def install(gemspec_filename=nil)
     gemfile = build(gemspec_filename)
