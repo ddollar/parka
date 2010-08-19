@@ -11,8 +11,6 @@ Create a `projectname.gemspec` file in the root of your gem like this:
     require "rubygems"
     require "parka/specification"
 
-    require "somegem"
-
     Parka::Specification.new do |gem|
       gem.name     = "somegem"
       gem.version  = Somegem::VERSION
