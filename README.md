@@ -70,7 +70,7 @@ Build a .gem file and install it locally.
 
 Build a .gem file and push it to Github and RubyGems.org
 
-    $ parka install
+    $ parka push
     Building somegem-0.1.gem
       Successfully built RubyGem
       Name: somegem
