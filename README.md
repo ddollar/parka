@@ -45,6 +45,8 @@ The gem can be built by using `gem build projectname.gemspec`
 
 ### parka build
 
+Build a .gem file.
+
     $ parka build
     Building somegem-0.1.gem
       Successfully built RubyGem
@@ -54,6 +56,8 @@ The gem can be built by using `gem build projectname.gemspec`
 
 ### parka install
 
+Build a .gem file and install it locally.
+
     $ parka install
     Building somegem-0.1.gem
       Successfully built RubyGem
@@ -61,3 +65,23 @@ The gem can be built by using `gem build projectname.gemspec`
       Version: 0.1
       File: somegem-0.1.gem
     Successfully installed somegem-0.1.gem
+
+### parka push
+
+Build a .gem file and push it to Github and RubyGems.org
+
+    $ parka install
+    Building somegem-0.1.gem
+      Successfully built RubyGem
+      Name: somegem
+      Version: 0.1
+      File: somegem-0.1.gem
+    Delta compression using up to 8 threads.
+    Compressing objects: 100% (8/8), done.
+    Writing objects: 100% (9/9), 1.26 KiB, done.
+    Total 9 (delta 3), reused 0 (delta 0)
+    To git@github.com:ddollar/somegem.git
+       edffa40..249581c  master -> master
+     * [new tag]         v0.1   -> v0.1
+    Pushing gem to RubyGems.org...
+    Successfully registered gem: somegem (0.1)
