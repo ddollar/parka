@@ -68,7 +68,7 @@ Build a .gem file and install it locally.
 
 ### parka push
 
-Build a .gem file and push it to Github and RubyGems.org
+Build a .gem file and push it to Github and RubyGems.org. Will create the GitHub repo if necessary.
 
     $ parka push
     Building somegem-0.1.gem
