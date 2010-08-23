@@ -24,7 +24,7 @@ class Parka::Specification < Gem::Specification
     spec.rubyforge_project = "nowarning"
 
     # default file list if none specified
-    spec.files = default_files if spec.files.empty?
+    spec.files = (spec.files + default_files).uniq
 
     # get dependencies from bundler
     add_bundler_dependencies(spec)
