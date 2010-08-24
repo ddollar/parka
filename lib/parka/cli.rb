@@ -1,3 +1,4 @@
+require "crack"
 require "rubygems/commands/push_command"
 require "rubygems/dependency_installer"
 require "parka"
