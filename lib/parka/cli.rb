@@ -24,10 +24,11 @@ class Parka::CLI < Thor
   desc "install [GEMSPEC]", "Build and install the gem"
 
   def install(gemspec_filename=nil)
+    original_home = ENV["GEM_HOME"]
     gemfile = build(gemspec_filename)
-    installer = Gem::DependencyInstaller.new
-    installer.install gemfile
-    say "Successfully installed #{File.basename(gemfile)}"
+    ENV["GEM_HOME"] = original_home
+
+    system "gem install #{gemfile}"
   end
 
   desc "push [GEMSPEC]", "Build the gem and push it to GitHub and RubyGems.org"
