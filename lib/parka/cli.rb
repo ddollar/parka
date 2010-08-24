@@ -7,6 +7,15 @@ require "thor"
 
 class Parka::CLI < Thor
 
+  desc "generate PARKA_GEMSPEC OUTPUT_GEMSPEC", "Generate the full gemspec"
+
+  def generate(parka_gemspec, output_gemspec)
+    gemspec = Gem::Specification.load(parka_gemspec)
+    File.open(output_gemspec, 'w') do |file|
+      file.print(gemspec.to_ruby)
+    end
+  end
+
   desc "build [GEMSPEC]", "Build the gem"
 
   def build(gemspec_filename=nil)
