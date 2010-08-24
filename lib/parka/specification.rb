@@ -43,7 +43,7 @@ private ######################################################################
   end
 
   def self.default_files
-    %x{ git ls-files }.split("\n").select { |f| f.match(/^(bin|data|ext|lib|spec|test)/) }
+    %x{ git ls-files }.split("\n").select { |f| f.match(%r{^(README|bin/|data/|ext/|lib/|spec/|test/)}) }
   end
 
   def self.add_bundler_dependencies(spec)
