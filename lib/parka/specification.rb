@@ -53,8 +53,8 @@ private ######################################################################
     runtime     = deps.select { |d| (d.groups & groups).any? }
     development = deps - runtime
 
-    development.each { |d| spec.add_development_dependency(d.name, d.requirement) }
-    runtime.each     { |d| spec.add_dependency(d.name, d.requirement) }
+    development.each { |d| spec.add_development_dependency(d.name, *d.requirement.as_list) }
+    runtime.each     { |d| spec.add_dependency(d.name, *d.requirement.as_list) }
   end
 
 end
