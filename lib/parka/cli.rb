@@ -2,7 +2,7 @@ require "crack"
 require "rubygems/commands/push_command"
 require "rubygems/dependency_installer"
 require "parka"
-require "rest-client"
+require "rest_client"
 require "thor"
 
 class Parka::CLI < Thor
