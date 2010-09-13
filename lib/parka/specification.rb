@@ -8,7 +8,7 @@ class Parka::Specification < Gem::Specification
     gemspec_filename = caller.first.split(':').first
 
     # add the lib/ dir of the gem to the load path
-    $:.unshift File.join(File.dirname(gemspec_filename), 'lib')
+    $:.unshift File.expand_path(File.join(File.dirname(gemspec_filename), 'lib'))
 
     # autorequire the same name as the gem spec
     require File.basename(gemspec_filename, File.extname(gemspec_filename))
