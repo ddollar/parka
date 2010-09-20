@@ -1,0 +1,13 @@
+source "http://rubygems.org"
+
+# gem "dependency"
+
+group :development do
+  gem "parka"
+end
+
+group :test do
+  gem "rake"
+  gem "rr"
+  gem "rspec", "~> 2.0.0.beta.22"
+end

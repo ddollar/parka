@@ -22,6 +22,11 @@ class Parka::CLI < Thor
     filename
   end
 
+  desc "init DIRECTORY", "Create a new gem"
+
+  def init(directory)
+  end
+
   desc "install [GEMSPEC]", "Build and install the gem"
 
   def install(gemspec_filename=nil)
