@@ -1,0 +1,17 @@
+# -*- encoding: utf-8 -*-
+$:.push File.expand_path("../lib", __FILE__)
+
+require "rubygems"
+require "parka/specification"
+
+Parka::Specification.new do |gem|
+  gem.name      = "<%= project_name %>"
+  gem.version   = <%= constant_name %>::VERSION
+  gem.summary   = "[TODO: change here]"
+  gem.author    = "<%= default_author %>"
+  gem.email     = "<%= default_email %>"
+  gem.homepage  = "http://github.com/<%= github_username %>/<%= project_name %>"
+
+  #gem.executables = "<%= project_name %>"
+end
+

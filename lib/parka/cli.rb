@@ -4,8 +4,20 @@ require "rubygems/dependency_installer"
 require "parka"
 require "rest_client"
 require "thor"
+require "erb"
 
 class Parka::CLI < Thor
+
+  desc "init", "Create a new gemspec"
+
+  def init
+    say "Writing new gemspec to #{File.join(Dir.pwd, default_gemspec)}"
+    template_file = File.expand_path('../templates/gemspec.tt', __FILE__)
+    erb = ERB.new(File.read(template_file))
+    File.open(default_gemspec,"w") do |f|
+      f.write erb.result binding
+    end
+  end
 
   desc "generate PARKA_GEMSPEC OUTPUT_GEMSPEC", "Generate the full gemspec"
 
@@ -102,6 +114,14 @@ private ######################################################################
   def github_username
     %x{ git config github.user }.strip
   end
+  
+  def default_author
+    %x{ git config user.name }.strip
+  end
+  
+  def default_email
+    %x{ git config user.email }.strip
+  end
 
   def github_token
     %x{ git config github.token }.strip
@@ -109,6 +129,14 @@ private ######################################################################
 
   def github_repositories
     Crack::JSON.parse(github["repos/show/#{github_username}"].get)["repositories"]
+  end
+
+  def project_name
+    File.basename(Dir.pwd)
+  end
+
+  def constant_name
+    project_name.capitalize
   end
 
 end
