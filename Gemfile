@@ -8,5 +8,5 @@ group :test do
   gem "rake"
   gem "rcov"
   gem "rr"
-  gem "rspec", "~> 2.0.0.beta.19"
+  gem "rspec", "~> 2.0.1"
 end
