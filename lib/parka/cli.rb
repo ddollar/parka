@@ -34,6 +34,9 @@ class Parka::CLI < Thor
 
   desc "push [GEMSPEC]", "Build the gem and push it to GitHub and RubyGems.org"
 
+  method_option :create, :type => :boolean, :aliases => "-c",
+                         :desc => "Create a Github repository for this project"
+
   def push(gemspec_filename=nil)
     gemspec = Gem::Specification.load(gemspec_filename || default_gemspec)
     gemfile = build(gemspec_filename)
@@ -45,15 +48,17 @@ class Parka::CLI < Thor
     end
 
     # create github repo
-    repos = github_repositories
-    names = repos.map { |repo| repo["name"] }
-    unless names.include?(gemspec.name)
-      github["repos/create"].post(
-        :name        => gemspec.name,
-        :description => gemspec.summary,
-        :homepage    => gemspec.homepage,
-        :public      => "1"
-      )
+    if options[:create]
+      begin
+        github["repos/create"].post(
+          :name        => gemspec.name,
+          :description => gemspec.summary,
+          :homepage    => gemspec.homepage,
+          :public      => "1"
+        )
+      rescue
+        error "Unable to create GitHub repository: #{gemspec.name}"
+      end
     end
 
     # create release tag
