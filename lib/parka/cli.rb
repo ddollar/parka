@@ -9,9 +9,12 @@ class Parka::CLI < Thor
 
   desc "build [GEMSPEC]", "Build the gem"
 
+  method_option :filename, :type => :string, :aliases => "-f",
+                           :desc => "Build to the specified filename"
+
   def build(gemspec_filename=nil)
     gemspec  = Gem::Specification.load(gemspec_filename || default_gemspec)
-    filename = "pkg/#{gemspec.file_name}"
+    filename = options[:filename] || "pkg/#{gemspec.file_name}"
 
     say "Building #{gemspec.file_name}"
 
