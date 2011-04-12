@@ -37,12 +37,15 @@ class Parka::CLI < Thor
 
   desc "push [GEMSPEC]", "Build the gem and push it to GitHub and RubyGems.org"
 
-  method_option :create, :type => :boolean, :aliases => "-c",
-                         :desc => "Create a Github repository for this project"
+  method_option :create,   :type => :boolean, :aliases => "-c",
+                           :desc => "Create a Github repository for this project"
+
+  method_option :filename, :type => :string, :aliases => "-f",
+                           :desc => "Build to the specified filename"
 
   def push(gemspec_filename=nil)
     gemspec = Gem::Specification.load(gemspec_filename || default_gemspec)
-    gemfile = build(gemspec_filename)
+    gemfile = options[:filename] || build(gemspec_filename)
 
     # create github remote
     remotes = %x{ git remote }.strip.split("\n")
