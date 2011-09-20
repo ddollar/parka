@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    parka (0.7.0)
+    parka (0.7.1)
       crack (~> 0.3.0)
       psych (~> 1.2.1)
       rest-client (~> 1.6.7)
