@@ -12,6 +12,8 @@ Gem::Specification.new do |gem|
   gem.summary  = "Simple gem building using bundler"
   gem.homepage = "http://github.com/ddollar/parka"
 
+  gem.files = Dir["**/*"].select { |d| d =~ %r{^(README|bin/|data/|ext/|lib/|spec/|test/)} }
+
   gem.executables = "parka"
 
   gem.add_dependency "crack",       "~> 0.3.0"
