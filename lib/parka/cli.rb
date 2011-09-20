@@ -1,8 +1,8 @@
+require "psych"
 require "crack"
 require "rubygems/commands/push_command"
 require "rubygems/dependency_installer"
 require "parka"
-require "psych"
 require "rest_client"
 require "thor"
 
