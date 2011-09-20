@@ -15,6 +15,7 @@ Gem::Specification.new do |gem|
   gem.executables = "parka"
 
   gem.add_dependency "crack",       "~> 0.3.0"
+  gem.add_dependency "psych",       "~> 1.2.1"
   gem.add_dependency "rest-client", "~> 1.6.7"
   gem.add_dependency "thor",        "~> 0.14.6"
 end
