@@ -37,10 +37,6 @@ Create a `Gemfile` to declare the dependencies of your gem:
       gem "rspec"
     end
 
-## Building Gems
-
-The gem can be built by using `gem build projectname.gemspec`
-   
 ## Using the parka command-line tool
 
 ### parka build
