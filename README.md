@@ -9,20 +9,23 @@
 Create a `projectname.gemspec` file in the root of your gem like this:
 
     require "rubygems"
-    require "parka/specification"
-
-    Parka::Specification.new do |gem|
+    require "somegem/version"
+    
+    Gem::Specification.new do |gem|
       gem.name     = "somegem"
       gem.version  = Somegem::VERSION
+      gem.author   = "Me"
       gem.summary  = "A sample gem"
       gem.homepage = "http://example.org"
+      
+      gem.add_dependency "rest-client"
     end
    
 Create a `Gemfile` to declare the dependencies of your gem:
 
     source "http://rubygems.org"
 
-    gem "rest-client"
+    gemspec
 
     group :development do
       gem "parka"
@@ -33,9 +36,6 @@ Create a `Gemfile` to declare the dependencies of your gem:
       gem "rcov"
       gem "rspec"
     end
-
-Gems in the `development` and `test` groups will become development
-dependencies of your gem.
 
 ## Building Gems
 
